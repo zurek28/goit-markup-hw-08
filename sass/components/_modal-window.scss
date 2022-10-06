@@ -1,0 +1,230 @@
+.backdrop-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  visibility: visible;
+  overflow: visible;
+}
+
+.modal-window {
+  max-width: 450px;
+  height: auto;
+  background-color: $BackgroundColor;
+
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  visibility: visible;
+
+  transition-property: visibility, opacity, transform;
+  transition-duration: 1s;
+  transform: translateX(-50%) translateY(-50%) scale(1) rotate(0deg) skew(0deg, 0deg);
+  opacity: 1;
+
+  &__close-button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $BackgroundColor;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+    }
+
+    &:active {
+      box-shadow: inset 8px 8px 16px -12px rgba(0, 0, 0, 1);
+    }
+  }
+
+  &__heading {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.15em;
+    text-align: center;
+    letter-spacing: 0.03em;
+    padding-top: 40px;
+    margin-bottom: 12px;
+  }
+}
+
+.is-hidden .modal-window {
+  transition-property: visibility, opacity, transform;
+  transition-duration: 1s;
+  transform: translateX(0) translateY(0) scale(0) rotate(180deg) skew(30deg, 30deg);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.is-hidden {
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.contact-form {
+  display: flex;
+  max-width: 370px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 40px;
+
+  &__label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17em;
+
+    /* identical to box height */
+    letter-spacing: 0.01em;
+
+    color: $SecondaryColorText;
+  }
+
+  &__input {
+    height: 40px;
+
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+
+    margin-top: 4px;
+    margin-bottom: 10px;
+
+    padding-left: 35px;
+
+    color: $SecondaryColorText;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__input:focus,
+  &__textarea:focus {
+    border-color: $BrandColor;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__icon {
+    position: absolute;
+    left: 15px;
+    top: 32px;
+  }
+
+  &__input + &__icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__input:focus + &__icon {
+    fill: var(--brand-color);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__textarea {
+    margin-top: 4px;
+    padding: 12px 16px;
+    color: var(--secondary-color-text);
+    resize: none;
+    height: 120px;
+
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+
+    &:placeholder-shown {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 1.17em;
+      letter-spacing: 0.01em;
+
+      color: rgba(117, 117, 117, 0.5);
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__checkbox-label {
+    position: relative;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7em;
+
+    /* identical to box height, or 171% */
+    letter-spacing: 0.03em;
+    color: var(--secondary-color-text);
+
+    margin: 20px 40px 30px 0;
+    // margin-top: 20px;
+    // margin-bottom: 30px;
+    left: 37px;
+    /* margin-left: 10px; */
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -23px;
+      width: 16px;
+      height: 15px;
+      border: 2px solid #212121;
+      border-radius: 2px;
+    }
+  }
+
+  &__checkbox:checked + &__checkbox-label::before {
+    border: none;
+    background-image: url('../images/icon-check.svg');
+  }
+
+  &__button {
+    background: $BrandColor;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 4px;
+
+    width: 200px;
+    height: 50px;
+    align-self: center;
+    margin-bottom: 21px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.875em;
+    letter-spacing: 0.06em;
+
+    color: $ThirdColorText;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+      transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal-window {
+    max-width: 528px;
+  }
+
+  .contact-form {
+    max-width: 448px;
+  }
+}

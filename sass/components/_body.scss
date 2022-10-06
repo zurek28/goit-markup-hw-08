@@ -1,0 +1,32 @@
+@import '../utils/vars';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: $PrimaryColorText;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  background: #ffffff;
+}
+
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+.section-padding {
+  padding: 94px 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+}

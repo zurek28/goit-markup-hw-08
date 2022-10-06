@@ -1,0 +1,133 @@
+.short-info {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  max-width: 480px;
+  margin: 0 auto;
+
+  &__item {
+    margin: 0 15px;
+  }
+
+  &__icon {
+    display: block;
+    margin: 25px auto;
+  }
+
+  &__heading {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: $PrimaryColorText;
+    margin-bottom: 10px;
+  }
+
+  &__paragraph {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+
+    /* or 171% */
+    letter-spacing: 0.03em;
+
+    color: $SecondaryColorText;
+  }
+}
+
+.spec-list {
+  visibility: hidden;
+  position: absolute;
+
+  &--heading {
+    visibility: hidden;
+    position: absolute;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .short-info {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 768px;
+
+    &__item {
+      max-width: 354px;
+    }
+
+    &__heading {
+      text-align: left;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .short-info {
+    max-width: 1200px;
+    justify-content: center;
+
+    &__item {
+      max-width: 270px;
+    }
+  }
+
+  .spec-list {
+    visibility: visible;
+    position: relative;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    &--heading {
+      visibility: visible;
+      position: relative;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 1.2;
+      text-align: center;
+      letter-spacing: 0.03em;
+
+      margin-top: 94px;
+
+      color: $PrimaryColorText;
+    }
+
+    &__item {
+      position: relative;
+      display: flex;
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+
+    &__image {
+      display: block;
+    }
+
+    &__signature {
+      display: flex;
+
+      position: absolute;
+      bottom: 0;
+      height: 70px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.15em;
+      text-align: center;
+      letter-spacing: 0.03em;
+
+      color: $BackgroundColor;
+      background-color: rgba(47, 48, 58, 0.8);
+    }
+  }
+}

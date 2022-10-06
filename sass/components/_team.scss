@@ -1,0 +1,141 @@
+.team--background {
+  background-color: $TeamBackground;
+}
+
+.team {
+  &__heading {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px 15px 0px;
+  }
+
+  &__list-item {
+    background-color: $BackgroundColor;
+    width: 100%;
+    max-width: 450px;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+    &-photo {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+    }
+  }
+
+  &__figure-container {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 0px 0px 4px 4px;
+  }
+
+  &__worker-name {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2;
+    margin: 30px 0 10px 0;
+
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.03em;
+
+    color: $PrimaryColorText;
+  }
+
+  &__worker-profession {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+    padding-bottom: 16px;
+
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.03em;
+
+    color: $SecondaryColorText;
+  }
+
+  &__socials-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__socials-list-item {
+    margin-bottom: 30px;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__social-icon {
+    fill: #afb1b8;
+    border-radius: 50%;
+
+    &:hover,
+    &:focus {
+      fill: #ffffff;
+      background-color: $PrimaryColorHover;
+      cursor: pointer;
+      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .team {
+    &__list {
+      column-gap: 30px;
+      flex-basis: calc((100% - 30px) / 2);
+      max-width: 768px;
+      margin: 50px auto 0;
+    }
+
+    &__list-item {
+      max-width: 354px;
+
+      &:nth-child(1),
+      &:nth-child(3) {
+        margin-left: 15px;
+      }
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .team {
+    &__list {
+      flex-wrap: nowrap;
+      flex-direction: row;
+      // justify-content: space-evenly;
+    }
+
+    &__list-item {
+      max-width: 270px;
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+  }
+}
